@@ -40,6 +40,8 @@ class ViewController: UITableViewController {
             cell.alpha = 1
             cell.transform = CGAffineTransform.identity
         })
+        
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,6 +62,11 @@ class ViewController: UITableViewController {
     @IBAction func refreshButtonTap(_ sender: Any) {
         innerItems.removeAll()
         loadJson()
+        tableView.reloadData()
+    }
+    
+    @IBAction func filterButtonTap(_ sender: Any) {
+        innerItems = innerItems.sorted { $0.country < $1.country}
         tableView.reloadData()
     }
     
@@ -108,6 +115,8 @@ class ViewController: UITableViewController {
                 //try JSONSerialization.jsonObject(with: data!, options: [])
                 self.innerItems = json.response.sorted {$0.deaths.total > $1.deaths.total}
              
+                self.innerItems.remove(at: 0)
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

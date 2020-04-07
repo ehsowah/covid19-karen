@@ -104,6 +104,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="COVID-19 Tracker" id="HSy-3d-guW">
+                        <barButtonItem key="leftBarButtonItem" title="A-Z" id="fLJ-7U-dtg">
+                            <connections>
+                                <action selector="filterButtonTap:" destination="twp-rg-90S" id="xZz-Uu-Vse"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="GM1-lo-QoP">
                             <connections>
                                 <action selector="refreshButtonTap:" destination="twp-rg-90S" id="KwL-Xb-Onz"/>
