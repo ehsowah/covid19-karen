@@ -12,8 +12,8 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var flagImage: UIImageView!
     @IBOutlet weak var countryName: UILabel!
-    @IBOutlet weak var latestDate: UILabel!
-    @IBOutlet weak var latestTime: UILabel!
+    @IBOutlet weak var recoveredLabel: UILabel!
+    @IBOutlet weak var deathLabel: UILabel!
    
     
     override func awakeFromNib() {

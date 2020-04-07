@@ -25,9 +25,9 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
         let listOfItems = innerItems[indexPath.row]
-        cell.countryName.text = listOfItems.country
-        cell.latestDate.text = listOfItems.day.dateFormatter(date: listOfItems.day)
-        cell.latestTime.text = listOfItems.time.timeFormatter(date: listOfItems.time)
+        cell.countryName.text = listOfItems.country 
+        cell.recoveredLabel.text = String(listOfItems.cases.recovered)
+        cell.deathLabel.text = String(listOfItems.deaths.total)
         cell.flagImage.image = UIImage(named: listOfItems.country.countryNameToCodeConvert(name: listOfItems.country))
 
         return cell
@@ -57,12 +57,17 @@ class ViewController: UITableViewController {
     // error message alert
     func errorMessage(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in
+            print("something...")
+            self.loadJson()
+        }))
         self.present(alert, animated: true)
     }
     
     // fetching data 
     func loadJson() {
+        ProgressHUD.show("Wait", interaction: false)
+        
         let headers = [
             "x-rapidapi-host": "covid-193.p.rapidapi.com",
             "x-rapidapi-key": "de28e0d3a5msh2fbf1eddd367ac3p1139cajsnb66181fca8f9"
@@ -76,8 +81,10 @@ class ViewController: UITableViewController {
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
                 // do something when error appear.
+                
                 DispatchQueue.main.async {
                     self.errorMessage(message: error!.localizedDescription)
+                    
                 }
                 return
                 
@@ -95,6 +102,7 @@ class ViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+                ProgressHUD.showSuccess("Success", interaction: false)
                 
             } catch {
                 print("Error during JSON serialization: \(error.localizedDescription)")

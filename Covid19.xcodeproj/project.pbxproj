@@ -18,6 +18,8 @@
 		FB49DC63243A8ED800A7F34D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB49DC61243A8ED800A7F34D /* Main.storyboard */; };
 		FB49DC65243A8EDC00A7F34D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB49DC64243A8EDC00A7F34D /* Assets.xcassets */; };
 		FB49DC68243A8EDC00A7F34D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB49DC66243A8EDC00A7F34D /* LaunchScreen.storyboard */; };
+		FBD5CE12243CEA34008DEEC8 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD5CE10243CEA34008DEEC8 /* ProgressHUD.m */; };
+		FBD5CE14243CEBB4008DEEC8 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FBD5CE13243CEBB4008DEEC8 /* ProgressHUD.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		FB49DC64243A8EDC00A7F34D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB49DC67243A8EDC00A7F34D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB49DC69243A8EDC00A7F34D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBD5CE0F243CEA34008DEEC8 /* Covid19-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Covid19-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBD5CE10243CEA34008DEEC8 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		FBD5CE11243CEA34008DEEC8 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		FBD5CE13243CEBB4008DEEC8 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,10 @@
 				FB49D2EF243BA2CF00782C15 /* DetailViewController.swift */,
 				FB45812C243AB3C4004F6C28 /* DataModel.swift */,
 				FB46E889243BF13400961010 /* Extension.swift */,
+				FBD5CE13243CEBB4008DEEC8 /* ProgressHUD.bundle */,
+				FBD5CE11243CEA34008DEEC8 /* ProgressHUD.h */,
+				FBD5CE10243CEA34008DEEC8 /* ProgressHUD.m */,
+				FBD5CE0F243CEA34008DEEC8 /* Covid19-Bridging-Header.h */,
 				FB49DC61243A8ED800A7F34D /* Main.storyboard */,
 				FB49DC64243A8EDC00A7F34D /* Assets.xcassets */,
 				FB49DC66243A8EDC00A7F34D /* LaunchScreen.storyboard */,
@@ -114,6 +124,7 @@
 				TargetAttributes = {
 					FB49DC57243A8ED800A7F34D = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -140,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD5CE14243CEBB4008DEEC8 /* ProgressHUD.bundle in Resources */,
 				FB49DC68243A8EDC00A7F34D /* LaunchScreen.storyboard in Resources */,
 				FB49DC65243A8EDC00A7F34D /* Assets.xcassets in Resources */,
 				FB49DC63243A8ED800A7F34D /* Main.storyboard in Resources */,
@@ -153,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD5CE12243CEA34008DEEC8 /* ProgressHUD.m in Sources */,
 				FB49DC60243A8ED800A7F34D /* ViewController.swift in Sources */,
 				FB45812F243AB877004F6C28 /* CustomTableViewCell.swift in Sources */,
 				FB458133243ABE7D004F6C28 /* NameDict.swift in Sources */,
@@ -304,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B5297G38R8;
 				INFOPLIST_FILE = Covid19/Info.plist;
@@ -313,6 +327,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehwah.Covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Covid19/Covid19-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -322,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B5297G38R8;
 				INFOPLIST_FILE = Covid19/Info.plist;
@@ -331,6 +348,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehwah.Covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Covid19/Covid19-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
