@@ -15,6 +15,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadJson()
+        tableView.tableFooterView = UIView()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,7 +116,7 @@ class ViewController: UITableViewController {
                 //try JSONSerialization.jsonObject(with: data!, options: [])
                 self.innerItems = json.response.sorted {$0.deaths.total > $1.deaths.total}
              
-                self.innerItems.remove(at: 0)
+//                self.innerItems.remove(at: 0)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
